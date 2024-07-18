@@ -16,9 +16,12 @@ import Uiux from "@/components/uiux";
 import Work from "@/components/work";
 import { Loader } from "lucide-react";
 import Head from "next/head";
-import React from "react";
+import { useContext } from "react";
+import DataContext from "@/context/context";
 
 function Index() {
+  const { loading } = useContext(DataContext);
+
   return (
     <div className="center">
       <Head>
@@ -29,7 +32,7 @@ function Index() {
           оптимизация инфраструктуры
         </title>
       </Head>
-      <div className="loader">
+      <div className={loading == true ? "loader" : "loader disactive"}>
         <img src="/loader_2.gif" alt="" />
         <img src="/logo.png" alt="" />
       </div>

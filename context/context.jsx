@@ -9,6 +9,7 @@ export const DataProvider = ({ children }) => {
   const [servicesDropDown, SetServicesDropDown] = useState(false);
   const [languageDropDown, SetLanguageDropDown] = useState(false);
   const [navbar, setNavbar] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [tools, setTools] = useState("");
 
   const tools_elements = [
@@ -302,6 +303,10 @@ export const DataProvider = ({ children }) => {
     },
   ];
 
+  setTimeout(() => {
+    setLoading(false);
+  }, 3000);
+
   const [count, setCount] = useState(0);
   const handleClicker = (num) => {
     setIsActive(num);
@@ -355,6 +360,7 @@ export const DataProvider = ({ children }) => {
         tools_elements,
         tools,
         navbar,
+        loading,
         handleClicker,
         portfolio_menu_activer,
         services_menu_activer,
